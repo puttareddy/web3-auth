@@ -8,16 +8,18 @@ app.use(cors());
 app.use(express.json());
 
 const message = "Authenticate with MetaMask";
-const providerUrl = "https://eth-sepolia.g.alchemy.com/v2/OeRJO2_DW04UdvAGy8bocQkMSplRxswm";
+const providerUrl =
+  "https://eth-sepolia.g.alchemy.com/v2/OeRJO2_DW04UdvAGy8bocQkMSplRxswm";
 // const provider = new ethers.providers.AlchemyProvider("sepolia", {
 //     name: 'sepolia',
 //     chainId: 11155111,
 //     ensAddress: '0x898d6824468f6540117c37AfeD7B550307b2719A',
 //     apiKey: 'OeRJO2_DW04UdvAGy8bocQkMSplRxswm'
 //   });
-  const provider = new ethers.providers.AlchemyProvider("goerli", 
-   'OeRJO2_DW04UdvAGy8bocQkMSplRxswm'
-  );
+const provider = new ethers.providers.AlchemyProvider(
+  "goerli",
+  "OeRJO2_DW04UdvAGy8bocQkMSplRxswm"
+);
 
 app.get("/auth", async (req, res) => {
   const signer = provider.getSigner();
