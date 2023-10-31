@@ -2,12 +2,60 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "attribute",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "info",
+						"type": "string"
+					}
+				],
+				"internalType": "struct AttributeInfoPair[]",
+				"name": "attrInfo",
+				"type": "tuple[]"
+			}
+		],
+		"name": "addProjectDetails",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "attribute",
 				"type": "string"
 			}
 		],
-		"name": "addUserAttribute",
+		"name": "addProjectDetailsAttribute",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "deleteProjectDetails",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -31,57 +79,115 @@
 		"type": "function"
 	},
 	{
+		"anonymous": false,
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
 			},
 			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "attribute",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "info",
-						"type": "string"
-					}
-				],
-				"internalType": "struct AttributeInfoPair[]",
-				"name": "attrInfo",
-				"type": "tuple[]"
+				"indexed": false,
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "info",
+				"type": "string"
 			}
 		],
-		"name": "mintUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"name": "ProjectDetailsAdded",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "previousOwner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
+				"indexed": false,
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
 			}
 		],
-		"name": "OwnershipTransferred",
+		"name": "ProjectDetailsAttributeAdded",
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
+			}
+		],
+		"name": "ProjectDetailsAttributeRemoved",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "ProjectDetailsDeleted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "info",
+				"type": "string"
+			}
+		],
+		"name": "ProjectDetailsUpdated",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "attribute",
+				"type": "string"
+			}
+		],
+		"name": "removeProjectDetailsAttribute",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -205,6 +311,11 @@
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
 				"components": [
 					{
 						"internalType": "string",
@@ -222,93 +333,10 @@
 				"type": "tuple[]"
 			}
 		],
-		"name": "setUserInfo",
+		"name": "updateProjectDetails",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "attribute",
-				"type": "string"
-			}
-		],
-		"name": "UserAttributeAdded",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "attribute",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "info",
-				"type": "string"
-			}
-		],
-		"name": "UserAttributeSet",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "proxy",
-				"type": "address"
-			}
-		],
-		"name": "UserIdProxySet",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			}
-		],
-		"name": "UserNodeMinted",
-		"type": "event"
 	},
 	{
 		"inputs": [],
@@ -324,40 +352,65 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getAllUserRecords",
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getAllProjectDetailsRecords",
 		"outputs": [
 			{
 				"components": [
 					{
-						"internalType": "address",
-						"name": "idProxyAddress",
-						"type": "address"
+						"internalType": "string",
+						"name": "attribute",
+						"type": "string"
 					},
 					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "attribute",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "info",
-								"type": "string"
-							}
-						],
-						"internalType": "struct AttributeInfoPair[]",
-						"name": "attributeInfo",
-						"type": "tuple[]"
+						"internalType": "string",
+						"name": "info",
+						"type": "string"
 					}
 				],
-				"internalType": "struct UserRecord[]",
+				"internalType": "struct AttributeInfoPair[][]",
+				"name": "",
+				"type": "tuple[][]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getProjectDetailsByIndex",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "attribute",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "info",
+						"type": "string"
+					}
+				],
+				"internalType": "struct AttributeInfoPair[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -387,42 +440,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "userAddress",
-				"type": "address"
-			}
-		],
-		"name": "getUserInfo",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "attribute",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "info",
-						"type": "string"
-					}
-				],
-				"internalType": "struct AttributeInfoPair[]",
-				"name": "",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bytes32",
 				"name": "role",
 				"type": "bytes32"
@@ -439,38 +456,6 @@
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "isAdmin",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
